@@ -1,4 +1,4 @@
-org: keyra_huamanyauri
+org: keyrahuamanyauri
 service: api-s3
 
 provider:
