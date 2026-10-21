@@ -1,7 +1,9 @@
 import boto3, json
 
 def lambda_handler(event, context):
-    body = json.loads(event['body']) if isinstance(event.get('body'), str) else event
+    body = event.get('body', event)
+    if isinstance(body, str):
+        body = json.loads(body)
     bucket = body['bucket']
     directorio = body['directorio'].rstrip('/') + '/'
     s3 = boto3.client('s3')
